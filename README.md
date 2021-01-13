@@ -1,8 +1,9 @@
 # learning_spring
 
-### 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술  
+### 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
 
-###
+<br/>
+
 ## 프로젝트 환경설정
 #### 프로젝트 생성
 * 스프링 부트 스타터 사이트 <https://start.spring.io> 에서 스프링 프로젝트 생성
@@ -25,7 +26,8 @@
 1. `cd build/libs`
 1. `java -jar {Name}.jar`
 
-###
+<br/>
+
 ## 스프링 웹 개발 기초
 #### 정적 컨텐츠
 * 스프링 부트는 `resources:static`디렉토리에서 정적 컨텐츠 제공
@@ -40,5 +42,17 @@
 * `@Response`를 사용하면 HTTP BODY에 문자 내용을 직접 반환
   * viewResolver 대신  `HttpMessageConverter`가 동작
   * 객체를 반환하면 객체가 JSON으로 변환됨
+  
+<br/>
+
+## 예제
+#### Test
+* JUnit 프레임워크로 테스트 실행
+* `src/test/java` 아래 작성
+* 테스트는 각각 독립적으로 실행되어야 함. (의존관계 X)   
+* Annotation
+  * `@Test` : 테스트 메소드 위에 작성
+  * `@BeforeEach` :  각 테스트 실행 전에 호출
+  * `@AfterEach` : 각 테스트가 종료될 때 마다 호출
   
   
