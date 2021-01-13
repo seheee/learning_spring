@@ -1,8 +1,8 @@
 # learning_spring
 
 ### 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술  
+<br/>
 
-###
 ## 프로젝트 환경설정
 #### 프로젝트 생성
 * 스프링 부트 스타터 사이트 <https://start.spring.io> 에서 스프링 프로젝트 생성
@@ -24,8 +24,8 @@
 1. `./gradlew build`
 1. `cd build/libs`
 1. `java -jar {Name}.jar`
+<br/>
 
-###
 ## 스프링 웹 개발 기초
 #### 정적 컨텐츠
 * 스프링 부트는 `resources:static`디렉토리에서 정적 컨텐츠 제공
