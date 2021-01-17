@@ -75,3 +75,29 @@
 #### 자바 코드로 직접 스프링 빈 등록하기
 * `@Configuration`, `@Bean` 사용
 
+<br/>
+
+## 스프링 DB 접근 기술
+
+#### 순수 JDBC
+* 환경설정
+  * build.gradle 파일에 jdbc, h2 데이터베이스 관련 라이브러리 추가
+  * application.properties에 스프링 부트 데이터베이스 연결 설정 추가
+* DataSource
+  * 데이터베이스 커넥션을 획득할 때 사용하는 객체
+  * 스프링 부트는 데이터베이스 커넥션 정보를 바탕으로 DataSource를 생성하고 스프링 빈으로 만들어둠
+    -> DI 가능
+    
+#### 스프링 통합 테스트
+* 스프링 컨테이너와 DB까지 연결한 통합 테스트
+  * `@SpringBootTest` : 스프링 컨테이너와 테스트 함께 실행
+  * `@Transactional` : 테스트 시작 전에 트랜잭션 시작하고 테스트 완료 후에 롤백
+    -> 다음 테스트에 영향 X
+    
+#### 스프링 JdbcTemplate
+* 스프링의 JdbcTemplate, MyBatis 등 라이브러리
+  * JDBC API에서 사용되는 반복 코드들을 대부분 제거해줌
+  * 하지만 SQL은 직접 작성
+  
+#### JPA
+
