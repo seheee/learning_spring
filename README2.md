@@ -1,0 +1,52 @@
+# learning_spring
+
+### 스프링 프레임워크 입문
+<br/>
+
+## IoC (Inversion of Control) 
+* 객체의 생성에서부터 생명주기의 관리까지 모든 객체에 대한 제어권이 바뀌었다는 것 (IoC 컨테이너)
+* 클래스 안에서 객체를 직접 생성하는것이 아니라 주입을 받아 사용
+
+#### Bean
+* 스프링 IoC 컨테이너가 관리하는 객체
+* 등록 방법
+    * Component Scanning
+        * `@Component` 이 붙은 클래스를 scanning하여 빈으로 등록
+        * `@Repository`, `@Service`, `@Controller` 등에도 포함되어있음
+    * 설정 파일에 등록
+        * `@Configuration` 이 붙은 클래스에 `@Bean` 을 사용하여 직접 빈을 정의
+* 꺼내 쓰는 방법
+    * `@Autowired`, `@Inject` 사용
+    * `ApplicationContext` 에서 `getBean()`으로 직접 꺼내 사용
+* 오로지 Bean들만 의존성 주입 해줌
+
+#### DI (Dependency Injection)
+* `@Autowired`, `@Inject` 사용
+    * 생성자
+        * Bean이 되는 클래스에 생성자가 하나만 있고 생성자의 매개변수 타입이 빈으로 등록되어있다면 Autowired 생략가능
+    * 필드
+    * Setter
+    
+## AOP (Aspect Oriented Programming)
+* 흩어져있는 코드를 모으는 코딩 기법
+* 프록시 기반
+* `@Aspect` : 해당 클래스가 Aspect를 나타내는 클래스라는 것을 명시
+* `@Around` : 해당 타 메서드를 감싸서 수행한다는 것 
+
+## PSA (Portable Service Abstraction)
+* Service Abstraction : 추상화 계층을 사용해서 어떤 기술을 내부에 숨기고 개발자에게 편의성을 제공해주는 것
+* Portable Service Abstraction : Service Abstraction으로 제공되는 기술을 다른 기술 스택으로 간편하게 바꿀 수 있는 확장성을 갖고 있는 것 
+
+#### Spring Transaction
+* `@Transactional`을 처리할 Aspect가 존재
+    * 해당 Aspect에서는 트랜잭션 처리를 기술에 독립적인 PlatformTransactionManager 인터페이스 사용해서 코딩되어 있음
+    * PlatformTransactionManager의 구현체(빈)가 바뀌더라도 Aspect의 코드는 바뀌지 않음
+    * 다양한 구현체 중 하나, 혹은 여러개가 빈으로 등록됨
+        * ex) 스프링 데이터 JPA를 사용하는 프로젝트에서는 JpaTransactionManager가 등록됨 (스프링 부트 자동 설정에 의해)
+#### Spring Cache
+* `@Cacheable`, `@CacheEvict`, ... 를 처리하는 Aspect
+    * CacheManager 인터페이스 사용
+#### Spring Web MVC
+* `@Controller`, `@RequestMapping`, ...
+    * Servlet, Reactive 바꿀 수 있음
+    
